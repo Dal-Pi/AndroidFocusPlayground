@@ -2,8 +2,8 @@
 <resources>
     <dimen name="button_width">100dp</dimen>
     <dimen name="button_height">100dp</dimen>
-    <dimen name="button_margin">10dp</dimen>
-
+    <dimen name="button_margin">3dp</dimen>
+    <dimen name="button_elevation">2dp</dimen>
     <dimen name="button_focus_border_size">5dp</dimen>
     
 </resources>
