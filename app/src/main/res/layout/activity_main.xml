@@ -7,11 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <com.kania.focusplayground.car.ui.FocusParkingView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/light_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.kania.focusplayground.car.ui.FocusArea
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,155 +24,160 @@
         app:layout_constraintDimensionRatio="5:7">
 
         <LinearLayout
-            style="@style/layout_row">
-            <Space
-                style="@style/view_base" />
-            <Space
-                style="@style/view_base" />
-            <Space
-                style="@style/view_base" />
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/text_desc"
-                android:gravity="bottom|center_horizontal"
-                android:text="to 0\n\u2191" />
-            <Space
-                style="@style/view_base" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                style="@style/layout_row">
+                <Space
+                    style="@style/view_base" />
+                <Space
+                    style="@style/view_base" />
+                <Space
+                    style="@style/view_base" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/text_desc"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="to 0\n\u2191" />
+                <Space
+                    style="@style/view_base" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_row">
+                <Space
+                    style="@style/view_base" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_1"
+                    android:text="1" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_2"
+                    android:text="2" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_3"
+                    android:nextFocusUp="@id/btn_0"
+                    android:nextFocusForward="@id/btn_8"
+                    android:text="3" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/text_desc"
+                    android:gravity="start|center_vertical"
+                    android:text="Forward to 8" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_row">
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/text_desc"
+                    android:gravity="end|center_vertical"
+                    android:text="4 Default" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_4"
+                    android:focusedByDefault="true"
+                    android:text="4" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_5"
+                    android:text="5" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_6"
+                    android:nextFocusRight="@id/btn_4"
+                    android:text="6" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/text_desc"
+                    android:gravity="start|center_vertical"
+                    android:text="\u2192 to 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_row">
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/text_desc"
+                    android:gravity="end|center_vertical"
+                    android:text="to 9 \u2190" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_7"
+                    android:nextFocusLeft="@id/btn_9"
+                    android:text="7" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_8"
+                    android:text="8" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_9"
+                    android:text="9" />
+                <Space
+                    style="@style/view_base" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_row">
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/text_desc"
+                    android:gravity="end|center_vertical"
+                    android:text="* disabled" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_astro"
+                    android:enabled="false"
+                    android:text="*" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_0"
+                    android:text="0" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/button_number"
+                    android:id="@+id/btn_sharp"
+                    android:text="#" />
+                <Space
+                    style="@style/view_base" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_row">
+
+                <Space
+                    style="@style/view_base" />
+                <Space
+                    style="@style/view_base" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/view_base"
+                    android:text="Call"
+                    android:background="@drawable/selector_button_call"
+                    android:nextFocusDown="@id/btn_2"
+                    android:elevation="0dp" />
+                <Space
+                    style="@style/view_base" />
+                <Space
+                    style="@style/view_base" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_row">
+                <Space
+                    style="@style/view_base" />
+                <Space
+                    style="@style/view_base" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/text_desc"
+                    android:gravity="top|center_horizontal"
+                    android:text="\u2193\nto 2" />
+                <Space
+                    style="@style/view_base" />
+                <Space
+                    style="@style/view_base" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/layout_row">
-            <Space
-                style="@style/view_base" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_1"
-                android:text="1" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_2"
-                android:text="2" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_3"
-                android:nextFocusUp="@id/btn_0"
-                android:nextFocusForward="@id/btn_8"
-                android:text="3" />
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/text_desc"
-                android:gravity="start|center_vertical"
-                android:text="Forward to 8" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/layout_row">
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/text_desc"
-                android:gravity="end|center_vertical"
-                android:text="4 Default" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_4"
-                android:focusedByDefault="true"
-                android:text="4" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_5"
-                android:text="5" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_6"
-                android:nextFocusRight="@id/btn_4"
-                android:text="6" />
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/text_desc"
-                android:gravity="start|center_vertical"
-                android:text="\u2192 to 4" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/layout_row">
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/text_desc"
-                android:gravity="end|center_vertical"
-                android:text="to 9 \u2190" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_7"
-                android:nextFocusLeft="@id/btn_9"
-                android:text="7" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_8"
-                android:text="8" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_9"
-                android:text="9" />
-            <Space
-                style="@style/view_base" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/layout_row">
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/text_desc"
-                android:gravity="end|center_vertical"
-                android:text="* disabled" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_astro"
-                android:enabled="false"
-                android:text="*" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_0"
-                android:text="0" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_number"
-                android:id="@+id/btn_sharp"
-                android:text="#" />
-            <Space
-                style="@style/view_base" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/layout_row">
-
-            <Space
-                style="@style/view_base" />
-            <Space
-                style="@style/view_base" />
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/view_base"
-                android:text="Call"
-                android:background="@drawable/selector_button_call"
-                android:nextFocusDown="@id/btn_2"
-                android:elevation="0dp" />
-            <Space
-                style="@style/view_base" />
-            <Space
-                style="@style/view_base" />
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/layout_row">
-            <Space
-                style="@style/view_base" />
-            <Space
-                style="@style/view_base" />
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/text_desc"
-                android:gravity="top|center_horizontal"
-                android:text="\u2193\nto 2" />
-            <Space
-                style="@style/view_base" />
-            <Space
-                style="@style/view_base" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
+    </com.kania.focusplayground.car.ui.FocusArea>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
